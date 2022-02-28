@@ -1,0 +1,56 @@
+.container {
+  background: var(--primary-color);
+  color: white;
+  min-width: 300px;
+  min-height: 100vh;  
+}
+
+.content {
+ position: fixed;
+ min-width: inherit; 
+}
+
+.user {
+  padding: 30px 0 36px 0;
+  border-bottom: 1px solid #ffffff44;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user img {
+  width: 45px;
+  outline: 2px solid white;
+  border-radius: 50%;
+}
+
+.user span {
+  margin-top: 10px;
+  letter-spacing: 1px;
+}
+
+.links {
+  padding: 36px 0 0 30px;
+}
+
+.links li {
+  margin-bottom: 10px;
+}
+
+.links a {
+  display: flex;
+  align-items: center;
+  border-radius: 10px 0 0 10px;
+  padding: 10px 0 10px 20px;
+  text-decoration: none;
+  color: white;
+}
+
+.links svg {
+  margin-right: 10px;
+  color: white;
+}
+
+.links a:hover {
+  outline: 1px solid white;
+}
