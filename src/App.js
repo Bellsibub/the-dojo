@@ -1,4 +1,7 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
+
+// hooks
+import { useAuth } from 'hooks/useAuth';
 
 // pages
 import { Dashboard, Login, Signup, Project, Create } from 'pages';
@@ -8,20 +11,23 @@ import { Navbar, Sidebar } from 'components';
 
 // styles
 import './App.css';
+import { ProtectedRoute, UnprotectedRoute } from 'utils/RouteGuard';
 
 function App() {
+  const { user } = useAuth();
+
   return (
     <div className="App">
       <Router>
-          <Sidebar />
+        {user && <Sidebar />}
         <div className="container">
           <Navbar />
           <Switch>
-            <Route exact path="/" component={Dashboard} />
-            <Route path="/create" component={Create} />
-            <Route path="/project/:id" component={Project} />
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
+            <ProtectedRoute exact path="/" component={<Dashboard />} />
+            <ProtectedRoute path="/create" component={<Create />} />
+            <ProtectedRoute path="/project/:id" component={<Project />} />
+            <UnprotectedRoute path="/login" component={<Login />} />
+            <UnprotectedRoute path="/signup" component={<Signup />} />
           </Switch>
         </div>
       </Router>

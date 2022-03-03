@@ -1,0 +1,32 @@
+.inputWrapper {
+  display: block;
+  margin: 24px auto;
+}
+
+.inputTitle {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.inputWrapper input,
+.inputWrapper textarea {
+  padding: 8px 6px;
+  font-size: 1em;
+  color: #777;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.inputWrapper textarea {
+  min-height: 160px;
+}
+
+.error {
+  color: red;
+  background: pink;
+  border: 1px solid red;
+  border-radius: 4px;
+  padding: 8px;
+  margin: 10px 0;
+}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { auth, storage } from 'services/config';
+// services
+import { auth, storage, db } from 'services/config';
 
 // hooks
 import { useAuth } from 'hooks/useAuth';
@@ -10,10 +11,10 @@ export const useSignup = () => {
   const [loading, setLoading] = useState(null);
   const { dispatch } = useAuth();
 
-  const signup = async (email, password, displayName, profilePic) => {
+  const signup = async (userData) => {
     setError(null);
     setLoading(true);
-
+    const { email, password, displayName, profilePic } = userData;
     try {
       // signup user
       const res = await auth.createUserWithEmailAndPassword(email, password);
@@ -24,8 +25,15 @@ export const useSignup = () => {
       const image = await storage.ref(path).put(profilePic);
       const photoURL = await image.ref.getDownloadURL();
 
-      // set displayName
+      // set user properties
       await res.user.updateProfile({ displayName, photoURL });
+
+      // create a user document
+      await db.collection('users').doc(res.user.uid).set({
+        online: true,
+        photoURL,
+        displayName,
+      });
 
       // dispatch login action
       dispatch({ type: 'LOGIN', payload: res.user });

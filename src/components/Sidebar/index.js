@@ -1,18 +1,21 @@
 import { NavLink } from 'react-router-dom';
 
+// hooks
+import { useAuth } from 'hooks/useAuth';
+
 // styles and images
 import styles from './Sidebar.module.css';
-import UserImage from 'assets/temple.svg';
 import { ReactComponent as DashboardIcon } from 'assets/dashboard_icon.svg';
 import { ReactComponent as AddIcon } from 'assets/add_icon.svg';
 
 const Sidebar = () => {
+  const { user } = useAuth();
   return (
     <div className={styles.container}>
       <div className={styles.content}>
         <div className={styles.user}>
-          <img src={UserImage} alt="" />
-          <span>Username</span>
+          <img src={user.photoURL} alt="" />
+          <span>{user.displayName}</span>
         </div>
         <div className={styles.links}>
           <ul>
@@ -23,7 +26,7 @@ const Sidebar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink activeClassName="sidebar-selected" to="/login">
+              <NavLink activeClassName="sidebar-selected" to="/create">
                 <AddIcon title="icon for add new project" />
                 <span>New Project</span>
               </NavLink>

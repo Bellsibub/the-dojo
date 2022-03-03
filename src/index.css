@@ -9,7 +9,7 @@
   --bg-color: #f4f4f4;
 }
 
-/* base styles */
+/* reset base styles */
 body {
   font-family: Poppins, sans-serif;
   margin: 0;
@@ -31,38 +31,7 @@ ul {
   display: inline-block;
 }
 
-
-/* forms */
-label {
-  display: block;
-  margin: 24px auto;
-}
-label span {
-  display: block;
-  margin-bottom: 6px;
-}
-input, textarea {
-  padding: 8px 6px;
-  font-size: 1em;
-  color: #777;
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-textarea {
-  min-height: 160px;
-}
-.error {
-  color: red;
-  background: pink;
-  border: 1px solid red;
-  border-radius: 4px;
-  padding: 8px;
-  margin: 10px 0;
-}
-
-/* Global selector for sidebar */
+/* Global selector for navlinks */
 .sidebar-selected {
   background: var(--bg-color);
   color: var(--primary-color) !important;
@@ -70,4 +39,9 @@ textarea {
 }
 .sidebar-selected svg {
   color: var(--primary-color) !important;
+}
+.navbar-selected {
+  border-bottom: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  font-weight: bold !important;
 }

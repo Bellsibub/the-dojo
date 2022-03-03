@@ -10,9 +10,10 @@ export const useLogin = () => {
   const [loading, setLoading] = useState(null);
   const { dispatch } = useAuth();
 
-  const login = async (email, password) => {
+  const login = async (userData) => {
     setError(null);
     setLoading(true);
+    const { email, password } = userData;
 
     // login the user
     try {
