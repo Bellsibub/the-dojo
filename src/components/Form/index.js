@@ -2,7 +2,7 @@ import _ from 'lodash';
 import { useState } from 'react';
 
 // components
-import { CardCentral, BtnMain } from 'components';
+import { CardCentral, BtnMain, ErrorMessage } from 'components';
 
 // styles
 import styles from './Form.module.css';
@@ -49,7 +49,7 @@ const Form = ({ _fields, title, handleSubmit, request, submitButton }) => {
         ))}
         {request && (
           <>
-            {request.error && <p className={styles.error}>{request.error}</p>}
+            {request.error && <ErrorMessage msg={request.error} />}
             <BtnMain type="submit" disabled={request.loading}>
               {!submitButton
                 ? 'Submit'

@@ -7,31 +7,36 @@ import { useAuth } from 'hooks/useAuth';
 import { Dashboard, Login, Signup, Project, Create } from 'pages';
 
 // components
-import { Navbar, Sidebar } from 'components';
+import { Navbar, Sidebar, Users } from 'components';
 
 // styles
 import './App.css';
 import { ProtectedRoute, UnprotectedRoute } from 'utils/RouteGuard';
 
 function App() {
-  const { user } = useAuth();
+  const { user, authIsReady } = useAuth();
 
   return (
-    <div className="App">
-      <Router>
-        {user && <Sidebar />}
-        <div className="container">
-          <Navbar />
-          <Switch>
-            <ProtectedRoute exact path="/" component={<Dashboard />} />
-            <ProtectedRoute path="/create" component={<Create />} />
-            <ProtectedRoute path="/project/:id" component={<Project />} />
-            <UnprotectedRoute path="/login" component={<Login />} />
-            <UnprotectedRoute path="/signup" component={<Signup />} />
-          </Switch>
+    <>
+      {authIsReady && (
+        <div className="App">
+          <Router>
+            {user && <Sidebar />}
+            <div className="container">
+              <Navbar />
+              <Switch>
+                <ProtectedRoute exact path="/" component={<Dashboard />} />
+                <ProtectedRoute path="/create" component={<Create />} />
+                <ProtectedRoute path="/project/:id" component={<Project />} />
+                <UnprotectedRoute path="/login" component={<Login />} />
+                <UnprotectedRoute path="/signup" component={<Signup />} />
+              </Switch>
+            </div>
+            {user && <Users />}
+          </Router>
         </div>
-      </Router>
-    </div>
+      )}
+    </>
   );
 }
 

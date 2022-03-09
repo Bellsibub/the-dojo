@@ -1,7 +1,7 @@
 .container {
   background: var(--primary-color);
   color: white;
-  min-width: 300px;
+  min-width: 250px;
   min-height: 100vh;  
 }
 
@@ -26,7 +26,8 @@
 
 .user span {
   margin-top: 10px;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  font-weight: bold;
 }
 
 .links {

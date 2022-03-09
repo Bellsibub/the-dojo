@@ -3,6 +3,9 @@ import { NavLink } from 'react-router-dom';
 // hooks
 import { useAuth } from 'hooks/useAuth';
 
+// components
+import { Avatar } from 'components';
+
 // styles and images
 import styles from './Sidebar.module.css';
 import { ReactComponent as DashboardIcon } from 'assets/dashboard_icon.svg';
@@ -14,7 +17,7 @@ const Sidebar = () => {
     <div className={styles.container}>
       <div className={styles.content}>
         <div className={styles.user}>
-          <img src={user.photoURL} alt="" />
+          <Avatar src={user.photoURL} outlined />
           <span>{user.displayName}</span>
         </div>
         <div className={styles.links}>
