@@ -30,7 +30,7 @@ export const useSnapshotDB = (collection, _query, _orderBy) => {
         setLoading(false);
       },
       (error) => {
-        setError("Could not fetch data");
+        setError('Could not fetch data');
         setLoading(false);
         console.error(error);
       }

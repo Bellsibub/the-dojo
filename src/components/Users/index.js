@@ -18,7 +18,8 @@ const Users = () => {
       {documents && (
         <div className={styles.contentWrapper}>
           {documents.map((user) => (
-            <div key={user.uid} className={styles.content}>
+            <div key={user.id} className={styles.content}>
+              {user.online && <div className={styles.online}></div>}
               <span>{user.displayName}</span>
               <Avatar src={user.photoURL} outlinedPrimary />
             </div>

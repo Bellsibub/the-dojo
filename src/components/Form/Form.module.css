@@ -1,6 +1,14 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
 .inputWrapper {
   display: block;
-  margin: 24px auto;
+  margin-right: 20%;
+  min-width: 360px;
+  max-width: 500px;
 }
 
 .inputTitle {
@@ -20,4 +28,5 @@
 }
 .inputWrapper textarea {
   min-height: 160px;
+  resize: vertical;
 }

@@ -1,6 +1,5 @@
 .container {
   background: white;
-  width: 200px;
   padding: 30px;
 }
 
@@ -28,4 +27,11 @@
 
 .content {
   font-style: italic;
+}
+
+.online {
+  height: 12px;
+  width: 12px;
+  background: green;
+  border-radius: 50%;
 }

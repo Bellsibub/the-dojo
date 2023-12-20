@@ -24,12 +24,6 @@ ul {
   list-style-type: none;
 }
 
-/* layout */
-.page-title {
-  font-size: 1em;
-  color: var(--heading-color);
-  display: inline-block;
-}
 
 /* Global selector for navlinks */
 .sidebar-selected {

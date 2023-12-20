@@ -4,7 +4,7 @@ import _ from 'lodash';
 import { useLogin } from 'hooks/useLogin';
 
 // components
-import { Form } from 'components';
+import { Form, Card } from 'components';
 
 const Login = () => {
   const fields = {
@@ -12,13 +12,11 @@ const Login = () => {
       type: 'email',
       title: 'Email:',
       value: '',
-      updateType: 'normal',
     },
     password: {
       type: 'password',
       title: 'Password:',
       value: '',
-      updateType: 'normal',
     },
   };
   const { login, error, loading } = useLogin();
@@ -28,13 +26,15 @@ const Login = () => {
   };
 
   return (
-    <Form
-      _fields={fields}
-      title="Login"
-      handleSubmit={handleSubmit}
-      request={{ error, loading }}
-      submitButton="Login"
-    />
+    <Card central>
+      <Form
+        _fields={fields}
+        title="Login"
+        handleSubmit={handleSubmit}
+        request={{ error, loading }}
+        submitButton="Login"
+      />
+    </Card>
   );
 };
 
